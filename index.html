@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Buses RBU</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Registro de Buses RBU</h1>
+      <nav>
+        <button id="homeBtn">Inicio</button>
+        <button id="registerBtn">Ingresar Nuevo Registro</button>
+        <button id="viewBtn">Ver Registro</button>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="view">
+        <h2>Bienvenido al Sistema de Registro de Buses</h2>
+      </section>
+      <section id="register" class="view">
+        <h2>Ingresar Nuevo Registro</h2>
+        <form id="busForm">
+          <label for="ppu">PPU (Patente):</label>
+          <input type="text" id="ppu" name="ppu" required />
+          <label for="features">Características:</label>
+          <textarea id="features" name="features" required></textarea>
+          <label for="observations">Observaciones:</label>
+          <textarea id="observations" name="observations"></textarea>
+          <label for="photo">Fotografía:</label>
+          <input type="file" id="photo" name="photo" accept="image/*" />
+          <img
+            id="preview"
+            src="#"
+            alt="Previsualización de la imagen"
+            style="display: none"
+          />
+          <button type="submit">Guardar Registro</button>
+        </form>
+      </section>
+      <section id="view" class="view">
+        <h2>Ver Registro</h2>
+        <input type="text" id="search" placeholder="Buscar por PPU" />
+        <table id="busTable">
+          <thead>
+            <tr>
+              <th>PPU</th>
+              <th>Características</th>
+              <th>Observaciones</th>
+              <th>Fotografía</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
