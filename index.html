@@ -8,57 +8,90 @@
 </head>
 <body>
     <header>
-        <h1>Registro de Buses RBU</h1>
-        <nav>
-            <button id="homeBtn">Inicio</button>
-            <button id="registerBtn">Ingresar Nuevo Registro</button>
-            <button id="viewBtn">Ver Registro</button>
-        </nav>
+        <div class="container">
+            <h1>Registro de Buses RBU</h1>
+            <nav>
+                <ul>
+                    <li><button id="homeBtn">Inicio</button></li>
+                    <li><button id="registerBtn">Ingresar Nuevo Registro</button></li>
+                    <li><button id="viewBtn">Ver Registro</button></li>
+                    <li><button id="loginBtn">Iniciar Sesión</button></li>
+                    <li><button id="logoutBtn" style="display:none;">Cerrar Sesión</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-        <section id="home" class="view">
-            <h2>Bienvenido al Sistema de Registro de Buses</h2>
+        <section id="home" class="view active">
+            <div class="container">
+                <h2>Bienvenido al Sistema de Registro de Buses</h2>
+                <img src="bus.jpg" alt="Imagen de bus" class="featured-image">
+                <p>Gestiona y visualiza los registros de buses de manera eficiente y segura.</p>
+                <button class="cta-button" id="registerBtnHome">Ingresar Nuevo Registro</button>
+                <button class="cta-button" id="viewBtnHome">Ver Registro</button>
+            </div>
         </section>
         <section id="register" class="view">
-            <h2>Ingresar Nuevo Registro</h2>
-            <form id="busForm">
-                <label for="ppu">PPU (Patente):</label>
-                <input type="text" id="ppu" name="ppu" required>
-                <label for="features">Características:</label>
-                <textarea id="features" name="features" required></textarea>
-                <label for="observations">Observaciones:</label>
-                <textarea id="observations" name="observations"></textarea>
-                <label for="busType">Tipo de Bus:</label>
-                <select id="busType" name="busType" required>
-                    <option value="electrico">Eléctrico</option>
-                    <option value="rigido">Rígido</option>
-                    <option value="articulado">Articulado</option>
-                </select>
-                <label for="photo">Fotografía:</label>
-                <input type="file" id="photo" name="photo" accept="image/*">
-                <img id="preview" src="#" alt="Previsualización de la imagen" style="display:none;">
-                <button type="submit">Guardar Registro</button>
-            </form>
+            <div class="container">
+                <h2>Ingresar Nuevo Registro</h2>
+                <form id="busForm">
+                    <label for="ppu">PPU (Patente):</label>
+                    <input type="text" id="ppu" name="ppu" required>
+                    <label for="features">Características:</label>
+                    <textarea id="features" name="features" required></textarea>
+                    <label for="observations">Observaciones:</label>
+                    <textarea id="observations" name="observations"></textarea>
+                    <label for="busType">Tipo de Bus:</label>
+                    <select id="busType" name="busType" required>
+                        <option value="electrico">Eléctrico</option>
+                        <option value="rigido">Rígido</option>
+                        <option value="articulado">Articulado</option>
+                    </select>
+                    <label for="photo">Fotografía:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <img id="preview" src="#" alt="Previsualización de la imagen" style="display:none;">
+                    <button type="submit">Guardar Registro</button>
+                </form>
+            </div>
         </section>
         <section id="view" class="view">
-            <h2>Ver Registro</h2>
-            <input type="text" id="search" placeholder="Buscar por PPU">
-            <button id="togglePhotos">Mostrar/Ocultar Fotografías</button>
-            <table id="busTable">
-                <thead>
-                    <tr>
-                        <th>PPU</th>
-                        <th>Características</th>
-                        <th>Observaciones</th>
-                        <th>Tipo de Bus</th>
-                        <th>Fotografía</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="container">
+                <h2>Ver Registro</h2>
+                <input type="text" id="search" placeholder="Buscar por PPU">
+                <button id="togglePhotos">Mostrar/Ocultar Fotografías</button>
+                <table id="busTable">
+                    <thead>
+                        <tr>
+                            <th>PPU</th>
+                            <th>Características</th>
+                            <th>Observaciones</th>
+                            <th>Tipo de Bus</th>
+                            <th>Fotografía</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+        <section id="login" class="view">
+            <div class="container">
+                <h2>Iniciar Sesión</h2>
+                <form id="loginForm">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+            </div>
         </section>
     </main>
+    <footer>
+        <div class="container">
+            <p>Contacto: <a href="mailto:contacto@registrobusesrbu.com">contacto@registrobusesrbu.com</a> | Teléfono: +56 9 1234 5678</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
