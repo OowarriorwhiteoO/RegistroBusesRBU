@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -46,6 +49,11 @@ nav ul li button:hover {
     background-color: #45a049;
 }
 
+main {
+    flex: 1;
+    margin-bottom: 60px; /* Espacio para el footer */
+}
+
 .view {
     display: none;
     padding: 2rem 0;
@@ -57,8 +65,10 @@ nav ul li button:hover {
 
 .featured-image {
     width: 100%;
+    max-width: 800px;
     height: auto;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    display: block;
 }
 
 .cta-button {
@@ -78,6 +88,7 @@ nav ul li button:hover {
 form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
 }
 
 form label {
@@ -105,7 +116,7 @@ form button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin: 1rem 0 2rem 0;
 }
 
 table, th, td {
@@ -122,9 +133,10 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
     width: 100%;
+    position: fixed;
     bottom: 0;
+    left: 0;
 }
 
 footer a {
@@ -139,10 +151,29 @@ footer a:hover {
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    table {
+        margin-bottom: 4rem;
     }
 
     table, th, td {
         display: block;
         width: 100%;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .container {
+        width: 95%;
+        padding: 0.5rem;
     }
 }
