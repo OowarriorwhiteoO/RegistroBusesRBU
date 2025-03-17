@@ -1,37 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
 }
 
-nav button {
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li button {
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    margin: 0.5rem;
     cursor: pointer;
 }
 
-nav button:hover {
+nav ul li button:hover {
     background-color: #45a049;
 }
 
 .view {
     display: none;
-    padding: 1rem;
+    padding: 2rem 0;
 }
 
 .view.active {
     display: block;
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.cta-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
 }
 
 form {
@@ -76,7 +117,30 @@ th, td {
     text-align: left;
 }
 
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+
     table, th, td {
         display: block;
         width: 100%;
