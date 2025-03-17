@@ -13,7 +13,7 @@
             <nav>
                 <ul>
                     <li><button id="homeBtn">Inicio</button></li>
-                    <li><button id="registerBtn">Ingresar Nuevo Registro</button></li>
+                    <li><button id="registerBtn" class="admin-only" style="display:none;">Ingresar Nuevo Registro</button></li>
                     <li><button id="viewBtn">Ver Registro</button></li>
                     <li><button id="loginBtn">Iniciar Sesión</button></li>
                     <li><button id="logoutBtn" style="display:none;">Cerrar Sesión</button></li>
@@ -25,13 +25,13 @@
         <section id="home" class="view active">
             <div class="container">
                 <h2>Bienvenido al Sistema de Registro de Buses</h2>
-                <img src="bus.jpg" alt="Imagen de bus" class="featured-image">
+                <img src="BUSES.png" alt="Imagen de bus" class="featured-image">
                 <p>Gestiona y visualiza los registros de buses de manera eficiente y segura.</p>
-                <button class="cta-button" id="registerBtnHome">Ingresar Nuevo Registro</button>
+                <button class="cta-button admin-only" id="registerBtnHome" style="display:none;">Ingresar Nuevo Registro</button>
                 <button class="cta-button" id="viewBtnHome">Ver Registro</button>
             </div>
         </section>
-        <section id="register" class="view">
+        <section id="register" class="view admin-required">
             <div class="container">
                 <h2>Ingresar Nuevo Registro</h2>
                 <form id="busForm">
@@ -50,6 +50,10 @@
                     <label for="photo">Fotografía:</label>
                     <input type="file" id="photo" name="photo" accept="image/*">
                     <img id="preview" src="#" alt="Previsualización de la imagen" style="display:none;">
+                    <div class="date-field">
+                        <label>Fecha de Ingreso:</label>
+                        <span id="registrationDate"></span>
+                    </div>
                     <button type="submit">Guardar Registro</button>
                 </form>
             </div>
@@ -67,7 +71,8 @@
                             <th>Observaciones</th>
                             <th>Tipo de Bus</th>
                             <th>Fotografía</th>
-                            <th>Acciones</th>
+                            <th>Fecha de Ingreso</th>
+                            <th class="admin-only" style="display:none;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
