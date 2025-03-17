@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const busTable = document.getElementById('busTable').querySelector('tbody');
     const searchInput = document.getElementById('search');
     const preview = document.getElementById('preview');
+    const togglePhotosBtn = document.getElementById('togglePhotos');
+
+    let showPhotos = true;
 
     const buses = JSON.parse(localStorage.getItem('buses')) || [];
 
@@ -27,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${bus.ppu}</td>
                 <td>${bus.features}</td>
                 <td>${bus.observations}</td>
-                <td><img src="${bus.photo}" alt="Foto" style="width: 100px;"></td>
+                <td>${bus.busType}</td>
+                <td>${showPhotos ? `<img src="${bus.photo}" alt="Foto" style="width: 100px;">` : ''}</td>
                 <td>
                     <button onclick="editBus(${index})">Editar</button>
                     <button onclick="deleteBus(${index})">Eliminar</button>
@@ -48,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('ppu').value = bus.ppu;
         document.getElementById('features').value = bus.features;
         document.getElementById('observations').value = bus.observations;
+        document.getElementById('busType').value = bus.busType;
         preview.src = bus.photo;
         preview.style.display = 'block';
         buses.splice(index, 1);
@@ -68,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ppu = document.getElementById('ppu').value;
         const features = document.getElementById('features').value;
         const observations = document.getElementById('observations').value;
+        const busType = document.getElementById('busType').value;
         const photo = preview.src;
 
         if (buses.some(bus => bus.ppu === ppu)) {
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const bus = { ppu, features, observations, photo };
+        const bus = { ppu, features, observations, busType, photo };
         saveBus(bus);
         busForm.reset();
         preview.src = '#';
@@ -98,20 +104,4 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredBuses = buses.filter(bus => bus.ppu.toLowerCase().includes(searchTerm));
         busTable.innerHTML = '';
         filteredBuses.forEach((bus, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${bus.ppu}</td>
-                <td>${bus.features}</td>
-                <td>${bus.observations}</td>
-                <td><img src="${bus.photo}" alt="Foto" style="width: 100px;"></td>
-                <td>
-                    <button onclick="editBus(${index})">Editar</button>
-                    <button onclick="deleteBus(${index})">Eliminar</button>
-                </td>
-            `;
-            busTable.appendChild(row);
-        });
-    });
-
-    renderTable();
-});
+            const row = document.create
