@@ -3,100 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Buses RBU</title>
+    <title>Registro de Buses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Registro de Buses RBU</h1>
-            <nav>
-                <ul>
-                    <li><button id="homeBtn">Inicio</button></li>
-                    <li><button id="registerBtn" class="admin-only" style="display:none;">Ingresar Nuevo Registro</button></li>
-                    <li><button id="viewBtn">Ver Registro</button></li>
-                    <li><button id="loginBtn">Iniciar Sesión</button></li>
-                    <li><button id="logoutBtn" style="display:none;">Cerrar Sesión</button></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section id="home" class="view active">
-            <div class="container">
-                <h2>Bienvenido al Sistema de Registro de Buses</h2>
-                <img src="BUSES.png" alt="Imagen de bus" class="featured-image">
-                <p>Gestiona y visualiza los registros de buses de manera eficiente y segura.</p>
-                <button class="cta-button admin-only" id="registerBtnHome" style="display:none;">Ingresar Nuevo Registro</button>
-                <button class="cta-button" id="viewBtnHome">Ver Registro</button>
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="#" class="nav__brand">RBU</a>
+            <button class="nav__toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav__menu">
+                <a href="#" class="nav__link" data-page="home">Inicio</a>
+                <a href="#" class="nav__link admin-only" data-page="register">Registrar Bus</a>
+                <a href="#" class="nav__link" data-page="view">Ver Buses</a>
+                <a href="#" class="nav__link" id="loginLink" data-page="login">Iniciar Sesión</a>
+                <a href="#" class="nav__link" id="logoutLink" style="display: none;">Cerrar Sesión</a>
             </div>
-        </section>
-        <section id="register" class="view admin-required">
-            <div class="container">
-                <h2>Ingresar Nuevo Registro</h2>
-                <form id="busForm">
-                    <label for="ppu">PPU (Patente):</label>
-                    <input type="text" id="ppu" name="ppu" required>
-                    <label for="features">Características:</label>
-                    <textarea id="features" name="features" required></textarea>
-                    <label for="observations">Observaciones:</label>
-                    <textarea id="observations" name="observations"></textarea>
-                    <label for="busType">Tipo de Bus:</label>
-                    <select id="busType" name="busType" required>
-                        <option value="electrico">Eléctrico</option>
-                        <option value="rigido">Rígido</option>
-                        <option value="articulado">Articulado</option>
-                    </select>
-                    <label for="photo">Fotografía:</label>
-                    <input type="file" id="photo" name="photo" accept="image/*">
-                    <img id="preview" src="#" alt="Previsualización de la imagen" style="display:none;">
-                    <div class="date-field">
-                        <label>Fecha de Ingreso:</label>
-                        <span id="registrationDate"></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Página de Inicio -->
+        <div class="page" id="home">
+            <div class="hero">
+                <div class="hero__content">
+                    <h1>Bienvenido al Sistema de Registro de Buses</h1>
+                    <p class="hero__text">Sistema integral para la gestión y control de buses.</p>
+                </div>
+                <div class="hero__image">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800" alt="Bus" class="hero__img">
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguro</h3>
+                    <p>Control de acceso y permisos para proteger la información</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Eficiente</h3>
+                    <p>Gestión rápida y sencilla de registros</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive</h3>
+                    <p>Accede desde cualquier dispositivo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Inicio de Sesión -->
+        <div class="page" id="login">
+            <div class="form-card">
+                <div class="form-card__header">
+                    <h2>Iniciar Sesión</h2>
+                </div>
+                <div class="form-card__body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Usuario:</label>
+                            <input type="text" id="username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Registro -->
+        <div class="page admin-only" id="register">
+            <div class="form-card">
+                <div class="form-card__header">
+                    <h2>Registro de Bus</h2>
+                </div>
+                <div class="form-card__body">
+                    <form id="busForm">
+                        <div class="form-group">
+                            <label for="ppu">PPU (Patente):</label>
+                            <input type="text" id="ppu" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="busType">Tipo de Bus:</label>
+                            <select id="busType" class="form-control" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="Urbano">Urbano</option>
+                                <option value="Rural">Rural</option>
+                                <option value="Interurbano">Interurbano</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="features">Características:</label>
+                            <textarea id="features" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="observations">Observaciones:</label>
+                            <textarea id="observations" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">Foto:</label>
+                            <input type="file" id="photo" accept="image/*" class="form-control">
+                            <img id="preview" style="display: none; max-width: 200px; margin-top: 10px;">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de Registro:</label>
+                            <span id="registrationDate"></span>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Registrar Bus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Visualización -->
+        <div class="page" id="view">
+            <div class="table-card">
+                <div class="table-card__header">
+                    <h2>Buses Registrados</h2>
+                    <div class="table-controls">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search" placeholder="Buscar...">
+                        </div>
+                        <button id="togglePhotos" class="btn btn--secondary">
+                            <i class="fas fa-image"></i> Mostrar/Ocultar Fotos
+                        </button>
                     </div>
-                    <button type="submit">Guardar Registro</button>
-                </form>
+                </div>
+                <div class="table-container">
+                    <table id="busTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>PPU</th>
+                                <th>Tipo</th>
+                                <th>Características</th>
+                                <th>Observaciones</th>
+                                <th>Foto</th>
+                                <th>Fecha de Registro</th>
+                                <th class="admin-only">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
-        </section>
-        <section id="view" class="view">
-            <div class="container">
-                <h2>Ver Registro</h2>
-                <input type="text" id="search" placeholder="Buscar por PPU">
-                <button id="togglePhotos">Mostrar/Ocultar Fotografías</button>
-                <table id="busTable">
-                    <thead>
-                        <tr>
-                            <th>PPU</th>
-                            <th>Características</th>
-                            <th>Observaciones</th>
-                            <th>Tipo de Bus</th>
-                            <th>Fotografía</th>
-                            <th>Fecha de Ingreso</th>
-                            <th class="admin-only" style="display:none;">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </section>
-        <section id="login" class="view">
-            <div class="container">
-                <h2>Iniciar Sesión</h2>
-                <form id="loginForm">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                    <button type="submit">Iniciar Sesión</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>Contacto: <a href="mailto:contacto@registrobusesrbu.com">contacto@registrobusesrbu.com</a> | Teléfono: +56 9 1234 5678</p>
         </div>
-    </footer>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
