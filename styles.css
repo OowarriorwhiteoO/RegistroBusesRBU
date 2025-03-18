@@ -182,42 +182,6 @@ body {
     box-shadow: 0 4px 6px var(--shadow-color);
 }
 
-/* Features */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.feature-card {
-    background: var(--surface-color);
-    padding: 2rem;
-    border-radius: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    transition: transform 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.feature-card p {
-    color: var(--text-light);
-}
-
 /* Páginas */
 .page {
     display: none;
@@ -425,10 +389,6 @@ body {
 
     .hero__image {
         order: -1;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
     }
 
     .table-controls {
